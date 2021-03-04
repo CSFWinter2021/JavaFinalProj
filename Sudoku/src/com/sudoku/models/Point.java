@@ -1,20 +1,29 @@
 package com.sudoku.models;
 
+
 public class Point {
 	
-	private int value;
-	private Subboard subboard;
-	private Line row, column;
-	private int rowLocation, columnLocation;
-	private boolean fixedPoint;
+	// A point in a Sudoku's board will contain these kind of information.
+	
+	private int value; //The value inside it.
+	
+	private Subboard subboard; //The subboard (3x3) which is containing it.
+	
+	private Line row, column; // The row and the column of the main board which are containing it.
+	
+	private int rowLocation, columnLocation; //It's location inside the main board's matrix 9x9.
+	
+	private boolean fixedPoint; //And if it is the fixed point at the beginning or not.
 	
 	public Point(int x) {
-		setValue(x);
+		value = x;
 		rowLocation = columnLocation = 0;
 		subboard = null;
 		row = column = null;
 		fixedPoint = false;
 	}
+	
+	/*Down below are just set and get methods. */
 	
 	public void setValue(int x) {
 		value = x;
@@ -77,3 +86,4 @@ public class Point {
 		else return "[" + value + ']';
 	}
 }
+
