@@ -92,6 +92,10 @@ public class User {
 			}
 		}
 	}
-    
+   	for (i = 0; i < exists.length; i++) {
+		if (exists[i] == true) {
+			System.out.print((i + 1) + " ");
+		}
+	}
     }
 }
