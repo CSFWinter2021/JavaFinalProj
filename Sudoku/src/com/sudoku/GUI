@@ -1,0 +1,460 @@
+//code for actually creating the GUI within Main
+
+package com.sudoku.gui;
+
+
+import javax.swing.*;
+
+
+public class MainGUI {
+
+	public static int board[][] = {
+	   //initializes a default board to use
+			{2, 0, 0, 8, 5, 0, 7, 0, 0}, 
+			{0, 5, 0, 7, 6, 0, 0, 8, 1}, 
+			{0, 0, 7, 0, 0, 2, 3, 0, 0},
+			{0, 2, 0, 0, 0, 8, 0, 0, 9},
+			{9, 8, 0, 0, 2, 0, 0, 7, 3},
+			{1, 0, 0, 5, 0, 0, 0, 2, 0},
+			{0, 0, 5, 9, 0, 0, 1, 0, 0},
+			{3, 1, 0, 0, 4, 5, 0, 6, 0},
+			{0, 0, 2, 0, 3, 1, 0, 0, 8} 	
+	};
+	
+	public static void main(String[] args) {
+		//these commands create the GUI
+		GUI gui = new GUI();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setSize(600, 600);
+		gui.setVisible(true);
+	}
+
+}
+
+	
+
+
+public class MainGUI {
+
+	public static int board[][] = {
+	   //initializes a default board to use
+			{2, 0, 0, 8, 5, 0, 7, 0, 0}, 
+			{0, 5, 0, 7, 6, 0, 0, 8, 1}, 
+			{0, 0, 7, 0, 0, 2, 3, 0, 0},
+			{0, 2, 0, 0, 0, 8, 0, 0, 9},
+			{9, 8, 0, 0, 2, 0, 0, 7, 3},
+			{1, 0, 0, 5, 0, 0, 0, 2, 0},
+			{0, 0, 5, 9, 0, 0, 1, 0, 0},
+			{3, 1, 0, 0, 4, 5, 0, 6, 0},
+			{0, 0, 2, 0, 3, 1, 0, 0, 8} 	
+	};
+	
+	public static void main(String[] args) {
+		//these commands create the GUI
+		GUI gui = new GUI();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setSize(600, 600);
+		gui.setVisible(true);
+	}
+
+}
+
+	
+
+//main section of code for GUI
+
+package com.sudoku.gui;
+
+import java.awt.Insets;
+import javax.swing.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.*;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Dimension;
+
+public class GUI extends JFrame{
+		//gui components all defined here
+			
+			private JFrame guiFrame = new JFrame();
+			
+			//panel for main menu defined here
+				private JPanel menuPanel = new JPanel();
+			
+			//buttons for menu panel defined here, start game starts a new game, view scores allows you to view user scores, exit game closes the game
+				
+				private JButton startGameB = new JButton("starte a new game");
+				private JButton viewScoresB = new JButton("view user scores");
+				private JButton exitGameB = new JButton("exit the game");
+			
+			//panel for showing user scores defined here
+				private JPanel scorePanel = new JPanel();
+				
+				private JLabel scoreHeader = new JLabel("Here are your scores");
+				private JButton scoreBackB = new JButton("Back to menu");
+			
+			//panels for actual sudoku game defined here, panel 1, 2 and 3 are all added into main panel which is added into the frame
+				private JPanel sudokuPanelMain = new JPanel();
+				private JPanel sudokuPanel1 = new JPanel();
+				private JPanel sudokuPanel2 = new JPanel();
+				private JPanel sudokuPanel3 = new JPanel();
+			
+			//buttons for completing puzzles/giving up in the sudoku panel
+				private JButton solveB = new JButton("solve");
+				private JButton giveUpB = new JButton("Give up");
+			
+			//other components of sudoku panel
+				private JLabel sHeader = new JLabel("Heres your puzzle");
+				
+			//different fonts used for sudoku panel
+				private Font sFont = new Font("Arial", Font.BOLD, 30);
+				private Font sFont2 = new Font("Arial", Font.ITALIC, 30);
+			
+			//defines seperate text fields for all 81 squares in sudoku
+			private JTextField s01 = new JTextField();
+			private JTextField s02 = new JTextField();
+			private JTextField s03 = new JTextField();
+			private JTextField s04 = new JTextField();
+			private JTextField s05 = new JTextField();
+			private JTextField s06 = new JTextField();
+			private JTextField s07 = new JTextField();
+			private JTextField s08 = new JTextField();
+			private JTextField s09 = new JTextField();
+			
+			private JTextField s11 = new JTextField();
+			private JTextField s12 = new JTextField();
+			private JTextField s13 = new JTextField();
+			private JTextField s14 = new JTextField();
+			private JTextField s15 = new JTextField();
+			private JTextField s16 = new JTextField();
+			private JTextField s17 = new JTextField();
+			private JTextField s18 = new JTextField();
+			private JTextField s19 = new JTextField();
+			
+			private JTextField s21 = new JTextField();
+			private JTextField s22 = new JTextField();
+			private JTextField s23 = new JTextField();
+			private JTextField s24 = new JTextField();
+			private JTextField s25 = new JTextField();
+			private JTextField s26 = new JTextField();
+			private JTextField s27 = new JTextField();
+			private JTextField s28 = new JTextField();
+			private JTextField s29 = new JTextField();
+			
+			private JTextField s31 = new JTextField();
+			private JTextField s32 = new JTextField();
+			private JTextField s33 = new JTextField();
+			private JTextField s34 = new JTextField();
+			private JTextField s35 = new JTextField();
+			private JTextField s36 = new JTextField();
+			private JTextField s37 = new JTextField();
+			private JTextField s38 = new JTextField();
+			private JTextField s39 = new JTextField();
+			
+			private JTextField s41 = new JTextField();
+			private JTextField s42 = new JTextField();
+			private JTextField s43 = new JTextField();
+			private JTextField s44 = new JTextField();
+			private JTextField s45 = new JTextField();
+			private JTextField s46 = new JTextField();
+			private JTextField s47 = new JTextField();
+			private JTextField s48 = new JTextField();
+			private JTextField s49 = new JTextField();
+			
+			private JTextField s51 = new JTextField();
+			private JTextField s52 = new JTextField();
+			private JTextField s53 = new JTextField();
+			private JTextField s54 = new JTextField();
+			private JTextField s55 = new JTextField();
+			private JTextField s56 = new JTextField();
+			private JTextField s57 = new JTextField();
+			private JTextField s58 = new JTextField();
+			private JTextField s59 = new JTextField();
+			
+			private JTextField s61 = new JTextField();
+			private JTextField s62 = new JTextField();
+			private JTextField s63 = new JTextField();
+			private JTextField s64 = new JTextField();
+			private JTextField s65 = new JTextField();
+			private JTextField s66 = new JTextField();
+			private JTextField s67 = new JTextField();
+			private JTextField s68 = new JTextField();
+			private JTextField s69 = new JTextField();
+			
+			private JTextField s71 = new JTextField();
+			private JTextField s72 = new JTextField();
+			private JTextField s73 = new JTextField();
+			private JTextField s74 = new JTextField();
+			private JTextField s75 = new JTextField();
+			private JTextField s76 = new JTextField();
+			private JTextField s77 = new JTextField();
+			private JTextField s78 = new JTextField();
+			private JTextField s79 = new JTextField();
+			
+			private JTextField s81 = new JTextField();
+			private JTextField s82 = new JTextField();
+			private JTextField s83 = new JTextField();
+			private JTextField s84 = new JTextField();
+			private JTextField s85 = new JTextField();
+			private JTextField s86 = new JTextField();
+			private JTextField s87 = new JTextField();
+			private JTextField s88 = new JTextField();
+			private JTextField s89 = new JTextField();
+			
+			//adds all textfields into a 2d array
+			private JTextField[][] sArr = new JTextField[][]{
+				{s01, s02, s03, s04, s05, s06, s07, s08, s09},
+				{s11, s12, s13, s14, s15, s16, s17, s18, s19},
+				{s21, s22, s23, s24, s25, s26, s27, s28, s29},
+				{s31, s32, s33, s34, s35, s36, s37, s38, s39},
+				{s41, s42, s43, s44, s45, s46, s47, s48, s49},
+				{s51, s52, s53, s54, s55, s56, s57, s58, s59},
+				{s61, s62, s63, s64, s65, s66, s67, s68, s69},
+				{s71, s72, s73, s74, s75, s76, s77, s78, s79},
+				{s81, s82, s83, s84, s85, s86, s87, s88, s89},
+			};
+			
+		public GUI() {
+		//panel layouts defined here
+			
+			//defines layouts of all panels
+			sudokuPanel1.setLayout(new GridBagLayout());
+			sudokuPanel2.setLayout(new GridBagLayout());
+			sudokuPanel3.setLayout(new GridBagLayout());
+			sudokuPanelMain.setLayout(new GridBagLayout());
+			
+			menuPanel.setLayout(new GridBagLayout());
+			
+			scorePanel.setLayout(new GridBagLayout());
+			
+			GridBagConstraints layout = new GridBagConstraints();
+			
+			//loop which sets specififcations for all 81 sudoku textfields
+			for(int i = 0; i < 9; i++) {
+				for(int j = 0; j < 9; j++) {
+					
+					//0 on the sudoku board is an emtpy space, anything not zero makes the textfield non-editable and displays the number
+					if (MainGUI.board[i][j] == 0) {
+						sArr[i][j].setFont(sFont);
+						sArr[i][j].setPreferredSize(new Dimension(35, 35));
+						sArr[i][j].setHorizontalAlignment(JTextField.CENTER);
+					} else if (MainGUI.board[i][j] != 0) {
+						sArr[i][j].setFont(sFont2);
+						sArr[i][j].setPreferredSize(new Dimension(35, 35));
+						sArr[i][j].setHorizontalAlignment(JTextField.CENTER);
+						sArr[i][j].setEditable(false);
+						String string = String.valueOf(MainGUI.board[i][j]);
+						sArr[i][j].setText(string);
+					}
+				}
+			}		
+			
+			//size specifications of buttons defined here
+				solveB.setPreferredSize(new Dimension(150, 35));
+				giveUpB.setPreferredSize(new Dimension(150, 35));
+				
+				startGameB.setPreferredSize(new Dimension(150, 35));
+				viewScoresB.setPreferredSize(new Dimension(150, 35));
+				exitGameB.setPreferredSize(new Dimension(150, 35));
+				
+				scoreBackB.setPreferredSize(new Dimension(150, 35));
+			
+			//defines layout of sudoku textfields within panel 1 which holds the 81 spaces to enter numbers
+			int sCounter = 0;
+			for(int i = 0; i < 9; i++) {
+				
+				for(int j = 0; j < 9; j++) {
+					layout = new GridBagConstraints();
+					layout.gridx = i;
+					layout.gridy = j + 1;
+					
+					int x = 0; int y = 0;
+					
+					if (sCounter % 9 == 2 || sCounter % 9 == 5) {
+						x = 10;
+						}
+					if(sCounter >= 18 &&  sCounter <= 26 || sCounter >= 45 &&  sCounter <= 53) {
+						y = 10;
+					}
+					
+					layout.insets = new Insets(0 ,0 ,x ,y );
+					
+					sCounter++;
+					sudokuPanel1.add(sArr[i][j], layout);
+				}
+			}
+			
+	//panels defined added here		
+		//sudoku panels defined here
+			//defines layout of sudoku panel 2 which holds the give up and solve buttons
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(15, 15, 15, 15);
+				sudokuPanel2.add(solveB, layout);
+			
+				layout = new GridBagConstraints();
+				layout.gridx = 4;
+				layout.gridy = 0;
+				layout.insets = new Insets(15, 15, 15, 15);
+				sudokuPanel2.add(giveUpB, layout);
+			
+			//defines layout of sudoku panel 3 which holds the header
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(5, 5, 5, 5);
+				sudokuPanel3.add(sHeader, layout);
+			
+			//adds sudoku panel 3 to main panel
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(5, 5, 5, 5);
+				sudokuPanelMain.add(sudokuPanel3, layout); 
+			
+			//adds sudoku panel 2 to main panel
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 2;
+				layout.insets = new Insets(5, 5, 5, 5);
+				sudokuPanelMain.add(sudokuPanel2, layout); 
+			
+			//adds sudoku panel 1 to main panel
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 1;
+				sudokuPanelMain.add(sudokuPanel1, layout);
+			
+		//defines layout of buttons within menu panel
+			//start game button added here
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(15, 15, 15, 15);
+				menuPanel.add(startGameB, layout);	
+			
+			//view scores button added here
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 1;
+				layout.insets = new Insets(15, 15, 15, 15);
+				menuPanel.add(viewScoresB, layout);
+				
+			//exit game button added here
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 2;
+				layout.insets = new Insets(15, 15, 15, 15);
+				menuPanel.add(exitGameB, layout);
+			
+			//score view header added here
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(15, 15, 15, 15);
+				scorePanel.add(scoreHeader, layout);
+				
+			//score back button added here
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 1;
+				layout.insets = new Insets(15, 15, 15, 15);
+				scorePanel.add(scoreBackB, layout);
+			
+			//menu panel added to frame which makes it the initial panel in view
+				layout = new GridBagConstraints();
+				layout.gridx = 0;
+				layout.gridy = 0;
+				layout.insets = new Insets(5, 5, 5, 5);
+				add(menuPanel);
+				
+			//actions listeners defined here
+				
+				//action listeners of sudoku panel buttons defined here
+					//solve button set here, checks to see if you have solved the sudoku puzzle
+						solveB.addActionListener(
+								new ActionListener()
+								{
+									public void actionPerformed(ActionEvent e)
+									{	
+										remove(sudokuPanelMain);
+										add(menuPanel);
+										repaint();
+										revalidate();
+									}
+								}
+								);
+						
+					//give up button set here, exits the sudoku panel without solving it
+						giveUpB.addActionListener(
+								new ActionListener()
+								{
+									public void actionPerformed(ActionEvent e)
+									{	
+										remove(sudokuPanelMain);
+										add(menuPanel);
+										repaint();
+										revalidate();
+									}
+								}
+								);
+					
+				//action listeners of menu panel buttons defined here
+					//start game button set here, starts the sudoku puzzle, currently only uses default board
+						startGameB.addActionListener(
+								new ActionListener()
+								{
+									public void actionPerformed(ActionEvent e)
+									{	
+										remove(menuPanel);
+										add(sudokuPanelMain);
+										repaint();
+										revalidate();
+									}
+								}
+							);
+				
+					//view user scores button set here, displays score of user
+							viewScoresB.addActionListener(
+									new ActionListener()
+									{
+										public void actionPerformed(ActionEvent e)
+										{	
+											remove(menuPanel);
+											add(scorePanel);
+											repaint();
+											revalidate();
+										}
+									}
+								);
+				
+					//exit game button set here, closes the game
+						exitGameB.addActionListener(
+								new ActionListener()
+								{
+									public void actionPerformed(ActionEvent e)
+									{	
+										dispose();
+									}
+								}
+							);
+				//action listeners of score panel set here, button exits back to menu
+						scoreBackB.addActionListener(
+								new ActionListener()
+								{
+									public void actionPerformed(ActionEvent e)
+									{	
+										remove(scorePanel);
+										add(menuPanel);
+										repaint();
+										revalidate();
+									}
+								}
+							);
+						}	
+	}
+	
+
