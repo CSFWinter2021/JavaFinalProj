@@ -35,27 +35,38 @@ public class User {
     }
 
     
-    public static void movesRemaining(int[] arr, int[] arr2, int[] arr3) {
+    public static void movesRemaining(int[] arr, int[] arr2, int[] arr3, int[] arr4, int[] arr5) {
     	
-        int[] temp = new int[(arr.length + arr2.length + arr3.length)];
+        int[] temp = new int[(arr.length + arr2.length + arr3.length + arr4.length + arr5.length)];
         int i;
         int j;
         boolean[] exists = {false, false, false, false, false, false, false, false, false};
     
         //copy the subboard values to a temp array.
+        //copy the first subboard values to a temp array.
         for (i = 0; i < arr.length; i++) {
             temp[i] = arr[i];
         }
         
-        //add the column values to the temp array.
+        //add the second subboard values to the temp array.
         for (i = 0; i < arr2.length; i++) {
-            temp[(i + arr.length)] = arr2[i];
+            temp[i + arr.length] = arr2[i];
         }
         
-        //add the row values to the temp array.
+        //add the final subboard values to the temp array.
         for (i = 0; i < arr3.length; i++) {
             temp[(i + arr.length + arr2.length)] = arr3[i];
-        }	
+        }
+        
+        //add the column values to the temp array.
+        for (i = 0; i < arr4.length; i++) {
+            temp[(i + arr.length + arr2.length + arr3.length)] = arr4[i];
+        }
+	
+        //add the row values to the temp array.
+        for (i = 0; i < arr5.length; i++) {
+            temp[(i + arr.length + arr2.length + arr3.length + arr4.length)] = arr5[i];
+        }
         
         //iterate through the temp array to find 1-9.
         for (i = 0; i < exists.length; i++) {
