@@ -16,7 +16,7 @@ public class GameConsoles {
 	
 	static int MainConsole(MainBoard board) {
 		String[] Choice = {"PUT", "Solve", "Cancel"};
-		return JOptionPane.showOptionDialog(frame, board, "Game Play:", 0, 1, -1, null, Choice, Choice[0]); 
+		return JOptionPane.showOptionDialog(frame, board, "Game Play:", JOptionPane.YES_NO_CANCEL_OPTION, -1, null, Choice, Choice[0]); 
 	}
 	
 	static Point choosePoint(MainBoard board) {
@@ -46,7 +46,7 @@ public class GameConsoles {
 	}
 	
 	static void CompleteMessages() {
-		JOptionPane.showMessageDialog(frame, "You complete the game!", "Congratulation!", 1);
+		JOptionPane.showMessageDialog(frame, "You have completed the game!", "Congratulations!", 1);
 	}
 	
 	static void ErrorMessages() {
