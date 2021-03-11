@@ -1,6 +1,7 @@
 package com.sudoku.models;
 
 
+
 public class Solve {
 	/*
 	 * Solves any valid Sudoku puzzle, 
@@ -71,11 +72,8 @@ public class Solve {
 				// set point to 0
 				board.point[row][col].setValue(0);
 			}
-			
-//			System.out.println(board.point[row][col].getValue());
-			
 		}
-		System.out.println("In the solve classes solve method");
+		
 		return false;
 	}
 	
@@ -86,7 +84,7 @@ public class Solve {
 		// Check rows
 		for (int i = 0; i < board.point.length; i++) {
 			if (board.point[position[0]][i].getValue() == number && position[1] != i) {
-				System.out.println("row valid value: " + board.point[position[0]][i].getValue());
+				
 				return false;
 			}
 		}
@@ -94,9 +92,7 @@ public class Solve {
 		// Check columns
 		for (int i = 0; i < board.point.length; i++) {
 			if (board.point[i][position[1]].getValue() == number && position[1] != i) {
-				System.out.println("col valid value: " + board.point[i][position[1]].getValue());
-				System.out.println("position 0: " + position[0]);
-				System.out.println("position 1: " + position[1]);
+				
 				return false;
 			}
 		}
@@ -105,7 +101,6 @@ public class Solve {
 		int subBoardX = position[1]/3;
 		int subBoardY = position[0]/3;
 		
-		System.out.println("Row: " + subBoardY + " Col: " + subBoardX);
 		
 		// traverse sub-board
 		for (int i = subBoardY*3; i < subBoardY+3; i++) {
