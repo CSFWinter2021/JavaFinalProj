@@ -5,8 +5,8 @@ package com.sudoku.models;
 public class Solve {
 	/*
 	 * Solves any valid Sudoku puzzle, 
-	 * start with DFS
-	 * then implement more intelligent search*/
+	 * Backtracking algorithm: DFS
+	 */
 	
 	// find empty board method : return 2 element array with positions
 	public int[] empty(MainBoard board) {
