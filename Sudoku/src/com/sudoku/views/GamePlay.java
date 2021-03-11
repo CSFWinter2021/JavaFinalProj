@@ -67,13 +67,6 @@ public class GamePlay {
 					System.out.println("calling solve");
 					solver.solve(board);
 					
-					// Exit if the board is valid
-					if(board.valid())
-					{
-						GameConsoles.CompleteMessages();;
-						exit = true;
-					}
-					
 					break;
 				
 				// Otherwise exit	
