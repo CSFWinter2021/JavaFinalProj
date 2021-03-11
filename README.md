@@ -17,22 +17,22 @@ has the advantage of fast solving time, and the ability to solve all sudokus.
 - Fields and Variables
 
 ## Fundamentals of Programming
-Branching Statements
-Loops
-Logical Operators
-Relational Expressions
-Arrays
-Variables
+- Branching Statements
+- Loops
+- Logical Operators
+- Relational Expressions
+- Arrays
+- Variables
 
 ## Programming Best Practices
-Self-Documenting Code
-Helpful Comments
-Properly Structured Code
-Test cases
+- Self-Documenting Code
+- Comments
+- Properly Structured Code
+- Test cases
 
 ## Math: big O, combinatorics, or discrete probability
 - present user with valid number of moves left
 
 ### CS Foundations - Final Project
-Final project: Computer Science Foundations - Winter Quarter
-The Evergreen State College
+- Final project: Computer Science Foundations - Winter Quarter
+- The Evergreen State College
